@@ -1,6 +1,7 @@
 const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
 const bcrypt = require("bcryptjs");
+const { v4: uuidv4 } = require("uuid");
 
 async function getAllWishlist(request, response) {
   try {
@@ -40,6 +41,7 @@ async function createWishItem(request, response) {
       data: {
         userId,
         productId,
+        id: uuidv4(),
       },
     });
     return response.status(201).json(wishItem);

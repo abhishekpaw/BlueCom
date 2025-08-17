@@ -44,7 +44,7 @@ model User {
 }
 
 model Customer_order {
-  id          String                   @id @default(uuid())
+  id          String   @id @default(uuid())
   name        String
   lastname    String
   phone       String
@@ -53,7 +53,7 @@ model Customer_order {
   adress      String
   apartment   String
   postalCode  String
-  dateTime    DateTime?                @default(now())
+  dateTime    DateTime?   @default(now())
   status      String
   city        String
   country     String
@@ -79,8 +79,8 @@ model Category {
 
 model Wishlist {
   id        String  @id @default(uuid())
-  product   Product @relation(fields: [productId], references: [id], onDelete: Cascade)
   productId String
-  user      User    @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId    String
+  product   Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+  user      User    @relation(fields: [userId], references: [id], onDelete: Cascade)
 }

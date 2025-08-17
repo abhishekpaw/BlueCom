@@ -1,5 +1,6 @@
 const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
+const { v4: uuidv4 } = require("uuid");
 
 async function createCustomerOrder(request, response) {
   try {
@@ -20,6 +21,7 @@ async function createCustomerOrder(request, response) {
     } = request.body;
     const corder = await prisma.customer_order.create({
       data: {
+        id: uuidv4(),
         name,
         lastname,
         phone,

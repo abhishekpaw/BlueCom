@@ -1,6 +1,7 @@
 const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
 const bcrypt = require("bcryptjs");
+const { v4: uuidv4 } = require("uuid");
 
 async function getAllUsers(request, response) {
   try {
@@ -18,6 +19,7 @@ async function createUser(request, response) {
 
     const user = await prisma.user.create({
       data: {
+        id: uuidv4(),
         email,
         password: hashedPassword,
         role,
