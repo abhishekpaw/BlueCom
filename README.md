@@ -75,7 +75,7 @@ npm run dev
 ![BlueCom home page](./public/Hompage.png)
 <h3>Shop page</h3>
 
-![BlueCom shop page](./public/Shop%20Page.png)
+![BlueCom shop page](./public/ShopPage.png)
 
 <h3>Single product page</h3>
 
